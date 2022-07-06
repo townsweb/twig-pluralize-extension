@@ -3,9 +3,10 @@
 namespace Tomodomo\Twig;
 
 use Exception;
-use Twig_Extension;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
-class Pluralize extends Twig_Extension
+class Pluralize extends AbstractExtension
 {
     /**
      * Returns the name of this extension
@@ -25,7 +26,7 @@ class Pluralize extends Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction(
+            new TwigFunction(
                 'pluralize',
                 [$this, 'getPluralizedString']
             )
